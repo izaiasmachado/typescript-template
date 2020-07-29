@@ -8,8 +8,7 @@
     "local": "node -r dotenv/config dist/server.js",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "dev": "ts-node-dev -r tsconfig-paths/register -r dotenv/config --respawn --transpileOnly --ignore-watch node_module --no-notify src/server.ts",
-    "test": "jest",
-    "commit": "npx git-cz"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,7 +22,8 @@
   "homepage": "https://github.com/izaiasmachado/typescript-template#readme",
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "devDependencies": {
